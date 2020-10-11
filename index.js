@@ -32,7 +32,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 //middlewares
 app.use("/pinlyapi", pinlyApiRoute);
-app.use("/", redirectPinlyRoute);
+app.use("/ly", redirectPinlyRoute);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));

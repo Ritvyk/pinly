@@ -14,7 +14,7 @@ router.post("/create", async (req, res) => {
   const UID = utils.randomURLId();
   const newURL = new Pinly({
     originalURL: req.body.originalURL,
-    pinlyURL: `${req.protocol}://${req.hostname}/${UID}`,
+    pinlyURL: `${req.protocol}://${req.hostname}/ly/${UID}`,
     UID: UID,
   });
 
