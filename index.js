@@ -34,6 +34,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/pinlyapi", pinlyApiRoute);
 app.use("/", redirectPinlyRoute);
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
+
 //get the api route
 
 //Main app controllers
