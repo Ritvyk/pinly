@@ -4,8 +4,11 @@
   "description": "quickly shorten your urls",
   "main": "index.js",
   "scripts": {
+    "client-install": "npm install --prefix client",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js"
+    "server": "nodemon index.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run client\" \"npm run server\""
   },
   "keywords": [
     "shorten",
@@ -20,6 +23,7 @@
   "author": "ritvik",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^5.3.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mongoose": "^5.10.9",
